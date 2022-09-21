@@ -28,8 +28,8 @@ Console.WriteLine("Bilietai online ir ne tik");
             Reportas(bilietai);
             break;*/
     }
-Console.WriteLine("Bilietai po 10€ {0:}, bilietai po 20€ {1}, bilietai po 30€ {2}", bilietai[0], bilietai[1], bilietai[2]);
-static OrderingTickets(int[] tickets)
+Console.WriteLine("Bilietai po 10€ {0}, bilietai po 20€ {1}, bilietai po 30€ {2}", bilietai[0], bilietai[1], bilietai[2]);
+ int OrderingTickets (int[] tickets)
 {
     int chooseItem; int kiekis;
     do
@@ -63,10 +63,10 @@ static OrderingTickets(int[] tickets)
                 break;
         }
     } while (chooseItem != 4);
-
-    for (int i = 0; i < tickets.Length; i++)
+    
+    foreach (int v in tickets)
     {
-        return tickets[i];
+        return v;
     }
     
     /*static void SoldingTickets(int[] tickets) { 
