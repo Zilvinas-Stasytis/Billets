@@ -1,31 +1,17 @@
-/******************************************************************************
+﻿int[] bilietai = { 0, 0, 0 };
 
-                            Online C# Compiler.
-                Code, Compile, Run and Debug C# program online.
-Write your code in this editor and press "Run" button to execute it.
-
-*******************************************************************************/
-
-/* Online C# Compiler and Editor */
-using System.IO;
-using System;
-public class Program
-{
-  static void Main ()
-  {
-    int[] bilietai = { 0, 0, 0 };
     int menuItem;
     do
       {
 	Console.WriteLine ("Bilietai online ir ne tik");
 	Console.WriteLine ("M E N I U");
 	Console.WriteLine ("---------------------------------");
-	Console.WriteLine ("1. Biliet� u�sakymas");
-	Console.WriteLine ("2. Biliet� pardavimas");
+	Console.WriteLine ("1. Bilietų užsakymas");
+	Console.WriteLine ("2. Bilietų pardavimas");
 	Console.WriteLine ("3. Ataskaita");
 	Console.WriteLine ("4. Pabaiga");
-	Console.WriteLine ("J�s� pasirinkimas:");
-	menuItem = Convert.ToInt32 (Console.ReadLine ());
+	Console.WriteLine ("Jūsų pasirinkimas:");
+	menuItem = Convert.ToInt32 (Console.ReadLine());
 	switch (menuItem)
 	  {
 	  case 1:
@@ -41,44 +27,44 @@ public class Program
 	  }
       }
     while (menuItem != 4);
-    for (int i = 0; i < bilietai.Length; i++)
-      {
-	Console.WriteLine (bilietai[i]);
-      }
-  }
+for (int i = 0; i < bilietai.Length; i++)
+{
+	Console.WriteLine();
 
-  static int[] OrderingTickets (int[]tickets)
+    Console.WriteLine("Bilietai {0}, likutis {1}",i+1,bilietai[i]);
+}
+  static int[] OrderingTickets(int[] tickets)
   {
     int chooseItem;
     int kiekis;
     do
       {
-	Console.WriteLine ("Kokius bilietus u�sakysite?");
+	Console.WriteLine ("Kokius bilietus užsakysite?");
 	Console.WriteLine ("---------------------------------");
-	Console.WriteLine ("1. Kaina 10�,");
-	Console.WriteLine ("2. Kaina 20�,");
-	Console.WriteLine ("3. Kaina 30�,");
-	Console.WriteLine ("4. Atsisakysite u�sakymo");
+	Console.WriteLine ("1. Kaina 10€,");
+	Console.WriteLine ("2. Kaina 20€,");
+	Console.WriteLine ("3. Kaina 30€,");
+	Console.WriteLine ("4. Atsisakysite užsakymo");
 	chooseItem = Convert.ToInt32 (Console.ReadLine ());
 	switch (chooseItem)
 	  {
 	  case 1:
-	    Console.WriteLine ("�veskite kiek�");
+	    Console.WriteLine ("Įveskite kiekį");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
 	    tickets[0] += kiekis;
 	    kiekis = 0;
 	    break;
 	  case 2:
-	    Console.WriteLine ("�veskite kiek�");
+	    Console.WriteLine ("Įveskite kiekį");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
 	    tickets[1] += kiekis;
-	    kiekis = 0;
+        kiekis = 0;
 	    break;
 	  case 3:
-	    Console.WriteLine ("�veskite kiek�");
+	    Console.WriteLine ("Įveskite kiekį");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
 	    tickets[2] += kiekis;
-	    kiekis = 0;
+        kiekis = 0;
 	    break;
 	  }
       }
@@ -86,7 +72,7 @@ public class Program
 
     return tickets;
   }
-  static int[] SoldingTickets (int[]tickets)
+  static int[] SoldingTickets (int[] tickets)
   {
     int chooseItem;
     int kiekis;
@@ -94,29 +80,74 @@ public class Program
       {
 	Console.WriteLine ("Kokius bilietus pirksite?");
 	Console.WriteLine ("---------------------------------");
-	Console.WriteLine ("1. Kaina 10�,");
-	Console.WriteLine ("2. Kaina 20�,");
-	Console.WriteLine ("3. Kaina 30�,");
+	Console.WriteLine ("1. Kaina 10€,");
+	Console.WriteLine ("2. Kaina 20€,");
+	Console.WriteLine ("3. Kaina 30€,");
 	Console.WriteLine ("4. Atsisakysite pirkimo");
-	chooseItem = Convert.ToInt32 (Console.ReadLine ());
+	chooseItem = Convert.ToInt32 (Console.ReadLine());
 	switch (chooseItem)
 	  {
 	  case 1:
-	    Console.WriteLine ("�veskite kiek�");
-	    kiekis = Convert.ToInt32 (Console.ReadLine ());
-	    tickets[0] -= kiekis;
+                if (tickets[0] == 0)
+                {
+                    Console.WriteLine("Deja,tokios rūšies bilietų nebeturime");
+					break;
+                }
+                Console.WriteLine ("Įveskite kiekį");
+	    kiekis = Convert.ToInt32 (Console.ReadLine());
+               
+                 if (kiekis > tickets[0])
+				{
+					do
+					{
+						Console.WriteLine("Šiuo metu turime tik {0} bilietų.Pakeiskite kiekį į mažesnį", tickets[0]);
+                        kiekis = Convert.ToInt32(Console.ReadLine());
+                    } while ((tickets[0]-kiekis)<0);
+				}
+				
+       tickets[0] -= kiekis;
 	    kiekis = 0;
 	    break;
 	  case 2:
-	    Console.WriteLine ("�veskite kiek�");
-	    kiekis = Convert.ToInt32 (Console.ReadLine ());
-	    tickets[1] -= kiekis;
+                if (tickets[1] == 0)
+                {
+                    Console.WriteLine("Deja,tokios rūšies bilietų nebeturime");
+					break;
+                }
+                Console.WriteLine ("Įveskite kiekį");
+	    kiekis = Convert.ToInt32 (Console.ReadLine());
+               
+                if (kiekis > tickets[1])
+                {
+                    do
+                    {
+                        Console.WriteLine("Šiuo metu turime tik {0} bilietų.Pakeiskite kiekį į mažesnį", tickets[1]);
+                        kiekis = Convert.ToInt32(Console.ReadLine());
+                    } while ((tickets[1] - kiekis) < 0);
+                }
+              
+                tickets[1] -= kiekis;
 	    kiekis = 0;
 	    break;
 	  case 3:
-	    Console.WriteLine ("�veskite kiek�");
+                if (tickets[2] == 0)
+                {
+                    Console.WriteLine("Deja,tokios rūšies bilietų nebeturime");
+					break;
+                }
+                Console.WriteLine ("Įveskite kiekį");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
-	    tickets[2] -= kiekis;
+               
+               if (kiekis > tickets[2])
+                {
+                    do
+                    {
+                        Console.WriteLine("Šiuo metu turime tik {0} bilietų.Pakeiskite kiekį į mažesnį", tickets[2]);
+                        kiekis = Convert.ToInt32(Console.ReadLine());
+                    } while ((tickets[2] - kiekis) < 0);
+                }
+                
+                tickets[2] -= kiekis;
 	    kiekis = 0;
 	    break;
 	  }
@@ -130,4 +161,3 @@ public class Program
 static Reportas(int[] tickets) {
     return (int) tickets;
 }*/
-}
