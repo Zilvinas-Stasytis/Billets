@@ -1,4 +1,7 @@
-ï»¿int[] bilietai = { 0, 0, 0 };
+using System;
+class Program {
+  static void Main() {
+int[] bilietai = { 0, 0, 0 };
 int[] uzsakyta = { 0, 0, 0 };
     int menuItem;
     do
@@ -6,11 +9,11 @@ int[] uzsakyta = { 0, 0, 0 };
 	Console.WriteLine ("Bilietai online ir ne tik");
 	Console.WriteLine ("M E N I U");
 	Console.WriteLine ("---------------------------------");
-	Console.WriteLine ("1. BilietÅ³ uÅ¾sakymas");
-	Console.WriteLine ("2. BilietÅ³ pardavimas");
+	Console.WriteLine ("1. Bilietø uşsakymas");
+	Console.WriteLine ("2. Bilietø pardavimas");
 	Console.WriteLine ("3. Ataskaita");
 	Console.WriteLine ("4. Pabaiga");
-	Console.WriteLine ("JÅ«sÅ³ pasirinkimas:");
+	Console.WriteLine ("Jûsø pasirinkimas:");
 	menuItem = Convert.ToInt32 (Console.ReadLine());
 	switch (menuItem)
 	  {
@@ -26,37 +29,38 @@ int[] uzsakyta = { 0, 0, 0 };
 	  }
       }
     while (menuItem != 4);
-  static (int[], int[]) OrderingTickets(int[] tickets, int[] ordered)
+  }
+ static (int[], int[]) OrderingTickets (int[] tickets, int[] ordered)
   {
     int chooseItem;
     int kiekis;
     do
       {
-	Console.WriteLine ("Kokius bilietus uÅ¾sakysite?");
+	Console.WriteLine ("Kokius bilietus uşsakysite?");
 	Console.WriteLine ("---------------------------------");
-	Console.WriteLine ("1. Kaina 10â‚¬,");
-	Console.WriteLine ("2. Kaina 20â‚¬,");
-	Console.WriteLine ("3. Kaina 30â‚¬,");
-	Console.WriteLine ("4. Atsisakysite uÅ¾sakymo");
+	Console.WriteLine ("1. Kaina 10€,");
+	Console.WriteLine ("2. Kaina 20€,");
+	Console.WriteLine ("3. Kaina 30€,");
+	Console.WriteLine ("4. Atsisakysite uşsakymo");
 	chooseItem = Convert.ToInt32 (Console.ReadLine ());
 	switch (chooseItem)
 	  {
 	  case 1:
-	    Console.WriteLine ("Ä®veskite kiekÄ¯");
+	    Console.WriteLine ("Áveskite kieká");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
 	    tickets[0] += kiekis;
 				ordered[0] += kiekis;
 	    kiekis = 0;
 	    break;
 	  case 2:
-	    Console.WriteLine ("Ä®veskite kiekÄ¯");
+	    Console.WriteLine ("Áveskite kieká");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
 	    tickets[1] += kiekis;
 				ordered[1] += kiekis;
 				kiekis = 0;
 	    break;
 	  case 3:
-	    Console.WriteLine ("Ä®veskite kiekÄ¯");
+	    Console.WriteLine ("Áveskite kieká");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
 	    tickets[2] += kiekis;
 				ordered[2] += kiekis;
@@ -74,9 +78,9 @@ int[] uzsakyta = { 0, 0, 0 };
       {
 	Console.WriteLine ("Kokius bilietus pirksite?");
 	Console.WriteLine ("---------------------------------");
-	Console.WriteLine ("1. Kaina 10â‚¬,");
-	Console.WriteLine ("2. Kaina 20â‚¬,");
-	Console.WriteLine ("3. Kaina 30â‚¬,");
+	Console.WriteLine ("1. Kaina 10€,");
+	Console.WriteLine ("2. Kaina 20€,");
+	Console.WriteLine ("3. Kaina 30€,");
 	Console.WriteLine ("4. Atsisakysite pirkimo");
 	chooseItem = Convert.ToInt32 (Console.ReadLine());
 	switch (chooseItem)
@@ -84,17 +88,17 @@ int[] uzsakyta = { 0, 0, 0 };
 	  case 1:
                 if (tickets[0] == 0)
                 {
-                    Console.WriteLine("Deja,tokios rÅ«Å¡ies bilietÅ³ nebeturime");
+                    Console.WriteLine("Deja,tokios rûğies bilietø nebeturime");
 					break;
                 }
-                Console.WriteLine ("Ä®veskite kiekÄ¯");
+                Console.WriteLine ("Áveskite kieká");
 	    kiekis = Convert.ToInt32 (Console.ReadLine());
                
                  if (kiekis > tickets[0])
 				{
 					do
 					{
-						Console.WriteLine("Å iuo metu turime tik {0} bilietÅ³.Pakeiskite kiekÄ¯ Ä¯ maÅ¾esnÄ¯", tickets[0]);
+						Console.WriteLine("Ğiuo metu turime tik {0} bilietø.Pakeiskite kieká á maşesná", tickets[0]);
                         kiekis = Convert.ToInt32(Console.ReadLine());
                     } while ((tickets[0]-kiekis)<0);
 				}
@@ -105,17 +109,17 @@ int[] uzsakyta = { 0, 0, 0 };
 	  case 2:
                 if (tickets[1] == 0)
                 {
-                    Console.WriteLine("Deja,tokios rÅ«Å¡ies bilietÅ³ nebeturime");
+                    Console.WriteLine("Deja,tokios rûğies bilietø nebeturime");
 					break;
                 }
-                Console.WriteLine ("Ä®veskite kiekÄ¯");
+                Console.WriteLine ("Áveskite kieká");
 	    kiekis = Convert.ToInt32 (Console.ReadLine());
                
                 if (kiekis > tickets[1])
                 {
                     do
                     {
-                        Console.WriteLine("Å iuo metu turime tik {0} bilietÅ³.Pakeiskite kiekÄ¯ Ä¯ maÅ¾esnÄ¯", tickets[1]);
+                        Console.WriteLine("Ğiuo metu turime tik {0} bilietø.Pakeiskite kieká á maşesná", tickets[1]);
                         kiekis = Convert.ToInt32(Console.ReadLine());
                     } while ((tickets[1] - kiekis) < 0);
                 }
@@ -126,17 +130,17 @@ int[] uzsakyta = { 0, 0, 0 };
 	  case 3:
                 if (tickets[2] == 0)
                 {
-                    Console.WriteLine("Deja,tokios rÅ«Å¡ies bilietÅ³ nebeturime");
+                    Console.WriteLine("Deja,tokios rûğies bilietø nebeturime");
 					break;
                 }
-                Console.WriteLine ("Ä®veskite kiekÄ¯");
+                Console.WriteLine ("Áveskite kieká");
 	    kiekis = Convert.ToInt32 (Console.ReadLine ());
                
                if (kiekis > tickets[2])
                 {
                     do
                     {
-                        Console.WriteLine("Å iuo metu turime tik {0} bilietÅ³.Pakeiskite kiekÄ¯ Ä¯ maÅ¾esnÄ¯", tickets[2]);
+                        Console.WriteLine("Ğiuo metu turime tik {0} bilietø.Pakeiskite kieká á maşesná", tickets[2]);
                         kiekis = Convert.ToInt32(Console.ReadLine());
                     } while ((tickets[2] - kiekis) < 0);
                 }
@@ -158,40 +162,41 @@ static (int[], int[]) Reportas(int[] tickets, int[] ordered)
 	 do { 
 	Console.WriteLine("A T A S K A I T A");
 	Console.WriteLine("---------------------------------");
-	Console.WriteLine("1. UÅ¾sakyta bilietÅ³ iÅ¡ viso uÅ¾ 10â‚¬");
-	Console.WriteLine("2. UÅ¾sakyta bilietÅ³ iÅ¡ viso uÅ¾ 20â‚¬");
-	Console.WriteLine("3. UÅ¾sakyta bilietÅ³ iÅ¡ viso uÅ¾ 30â‚¬");
-	Console.WriteLine("4. Parduota bilietÅ³ uÅ¾ 10â‚¬");
-	Console.WriteLine("5. Parduota bilietÅ³ uÅ¾ 20â‚¬");
-	Console.WriteLine("6. Parduota bilietÅ³ uÅ¾ 30â‚¬");
-	Console.WriteLine("7. Likutis bilietÅ³ uÅ¾ 10â‚¬");
-	Console.WriteLine("8. Likutis bilietÅ³ uÅ¾ 20â‚¬");
-	Console.WriteLine("9. Likutis bilietÅ³ uÅ¾ 30â‚¬");
-	Console.WriteLine("10. Baigti ataskaitÄ…");
+	Console.WriteLine("1. Uşsakyta bilietø iğ viso uş 10€");
+	Console.WriteLine("2. Uşsakyta bilietø iğ viso uş 20€");
+	Console.WriteLine("3. Uşsakyta bilietø iğ viso uş 30€");
+	Console.WriteLine("4. Parduota bilietø uş 10€");
+	Console.WriteLine("5. Parduota bilietø uş 20€");
+	Console.WriteLine("6. Parduota bilietø uş 30€");
+	Console.WriteLine("7. Likutis bilietø uş 10€");
+	Console.WriteLine("8. Likutis bilietø uş 20€");
+	Console.WriteLine("9. Likutis bilietø uş 30€");
+	Console.WriteLine("10. Baigti ataskaità");
 	chooseItem = Convert.ToInt32(Console.ReadLine());
    	switch (chooseItem) 
 		{
 		case 1:
-			Console.WriteLine("UÅ¾sakyta bilietÅ³ uÅ¾ 10â‚¬ â€“ {0}", ordered[0]); break;
+			Console.WriteLine("Uşsakyta bilietø uş 10€ – {0}", ordered[0]); break;
 		case 2:
-			Console.WriteLine("UÅ¾sakyta bilietÅ³ uÅ¾ 20â‚¬ â€“ {0}", ordered[1]); break;
+			Console.WriteLine("Uşsakyta bilietø uş 20€ – {0}", ordered[1]); break;
 		case 3:
-			Console.WriteLine("UÅ¾sakyta bilietÅ³ uÅ¾ 30â‚¬ â€“ {0}", ordered[2]); break;
+			Console.WriteLine("Uşsakyta bilietø uş 30€ – {0}", ordered[2]); break;
 		case 4:
-			Console.WriteLine("Nupirkta bilietÅ³ uÅ¾ 10â‚¬ â€“ {0}", ordered[0] - tickets[0]); break;
+			Console.WriteLine("Nupirkta bilietø uş 10€ – {0}", ordered[0] - tickets[0]); break;
 		case 5:
-			Console.WriteLine("Nupirkta bilietÅ³ uÅ¾ 20â‚¬ â€“ {0}", ordered[1] - tickets[1]); break;
+			Console.WriteLine("Nupirkta bilietø uş 20€ – {0}", ordered[1] - tickets[1]); break;
 		case 6:
-			Console.WriteLine("Nupirkta bilietÅ³ uÅ¾ 30â‚¬ â€“ {0}", ordered[2] - tickets[2]); break;
+			Console.WriteLine("Nupirkta bilietø uş 30€ – {0}", ordered[2] - tickets[2]); break;
 		case 7:
-			Console.WriteLine("Likutis bilietÅ³ uÅ¾ 10â‚¬ â€“ {0}", tickets[0]); break;
+			Console.WriteLine("Likutis bilietø uş 10€ – {0}", tickets[0]); break;
 		case 8:
-			Console.WriteLine("Likutis bilietÅ³ uÅ¾ 20â‚¬ â€“ {0}", tickets[1]); break;
+			Console.WriteLine("Likutis bilietø uş 20€ – {0}", tickets[1]); break;
 		case 9:
-			Console.WriteLine("Likutis bilietÅ³ uÅ¾ 30â‚¬ â€“ {0}", tickets[2]); break;
+			Console.WriteLine("Likutis bilietø uş 30€ – {0}", tickets[2]); break;
 	}
 } 
 	while (chooseItem != 10);
 	Console.WriteLine("-----------------------------------------------------------------");
 	return  (tickets, ordered);
 }
+  }
